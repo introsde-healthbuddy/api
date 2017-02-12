@@ -46,6 +46,9 @@ public class Person implements Serializable {
 	
 	@Column(name="\"username\"")
 	private String username;
+	
+	@Column(name="\"password\"")
+	private String password;
 
 	@Id
 	@GeneratedValue(generator="sqlite_person")
@@ -177,6 +180,17 @@ public class Person implements Serializable {
             .getResultList();
         LifeCoachDao.instance.closeConnections(em);
         return list;
+    }
+    
+    public static boolean verifyUser(String username, String password) {
+    	EntityManager em = LifeCoachDao.instance.createEntityManager();
+    	Person p = em.createQuery("SELECT p FROM Person p WHERE p.username = :username AND p.password = :password", Person.class).getSingleResult();
+    	LifeCoachDao.instance.closeConnections(em);
+    	if(p != null) {
+    		return true;
+    	}else {
+    		return false;
+    	}
     }
     
     public static List<Person> getWithRange(String type, int min, int max){
