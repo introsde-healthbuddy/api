@@ -126,8 +126,12 @@
             </fileset>
         </copy>
     </target>
-	<target name="start" depends="install">
-		<!--<echo message="start introsde.rest.ehealth.App in ${build.dir}" />
+	
+	<target name="start" depends="startRestService, startSoapService">
+		<echo message="start services" />
+	</target>
+	
+	<target name="startRestService">
 	    <java classname="introsde.rest.ehealth.App" classpath="${build.dir}" fork="true">
 	    	<arg value="$JAVA_OPTS  -cp" />
 	        <classpath>
@@ -137,8 +141,10 @@
 	                <include name="*.jar" />
 	            </fileset>
 	        </classpath>
-	    </java>-->
-		<echo message="start introsde.soap.endpoint.LoginPublisher in ${build.dir}" />
+	    </java>
+	</target>
+		
+	<target name="startSoapService">
 		<java classname="introsde.soap.endpoint.LoginPublisher" classpath="${build.dir}" fork="true">
 			<arg value="$JAVA_OPTS  -cp" />
 			<classpath>
