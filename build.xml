@@ -127,7 +127,7 @@
         </copy>
     </target>
 	
-	<target name="start" depends="startSoapService">
+	<target name="start" depends="startSoapService, startRestService">
 		<echo message="start services" />
 	</target>
 	
