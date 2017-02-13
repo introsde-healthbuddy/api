@@ -127,7 +127,7 @@
         </copy>
     </target>
 	<target name="start" depends="install">
-		<echo message="start introsde.rest.ehealth.App in ${build.dir}" />
+		<!--<echo message="start introsde.rest.ehealth.App in ${build.dir}" />
 	    <java classname="introsde.rest.ehealth.App" classpath="${build.dir}" fork="true">
 	    	<arg value="$JAVA_OPTS  -cp" />
 	        <classpath>
@@ -137,8 +137,8 @@
 	                <include name="*.jar" />
 	            </fileset>
 	        </classpath>
-	    </java>
-		<!--<echo message="start introsde.soap.endpoint.LoginPublisher in ${build.dir}" />
+	    </java>-->
+		<echo message="start introsde.soap.endpoint.LoginPublisher in ${build.dir}" />
 		<java classname="introsde.soap.endpoint.LoginPublisher" classpath="${build.dir}" fork="true">
 			<arg value="$JAVA_OPTS  -cp" />
 			<classpath>
@@ -148,7 +148,7 @@
 					<include name="*.jar" />
 				</fileset>
 			</classpath>
-		</java>-->
+		</java>
 	</target>
 
 	<!-- make sure you have created first the WebContent folder, including a META-INF folder, WEB-INF/web.xml file and WEB-INF/lib folder --> 
