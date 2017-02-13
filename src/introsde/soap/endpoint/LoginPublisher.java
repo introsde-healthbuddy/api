@@ -17,7 +17,7 @@ public class LoginPublisher{
 
         public static void main(String[] args) {
             String endpointUrl = getEndpointURL();
-            System.out.println("Starting People Service...");
+            System.out.println("Starting Login Service...");
             System.out.println("--> Published at = "+endpointUrl);
             Endpoint.publish(endpointUrl, new LoginImpl());
         }

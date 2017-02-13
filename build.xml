@@ -127,17 +127,7 @@
         </copy>
     </target>
 	<target name="start" depends="install">
-		<echo message="start introsde.rest.ehealth.App in ${build.dir}" />
-	    <java classname="introsde.rest.ehealth.App" classpath="${build.dir}" fork="true">
-	    	<arg value="$JAVA_OPTS  -cp" />
-	        <classpath>
-	        	<path location="build" />
-	            <fileset dir="WebContent/WEB-INF/lib">
-	            	<include name="**/*.jar" />
-	                <include name="*.jar" />
-	            </fileset>
-	        </classpath>
-	    </java>
+
 		<echo message="start introsde.soap.endpoint.LoginPublisher in ${build.dir}" />
 		<java classname="introsde.soap.endpoint.LoginPublisher" classpath="${build.dir}" fork="true">
 			<arg value="$JAVA_OPTS  -cp" />
