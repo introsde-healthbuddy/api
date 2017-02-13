@@ -15,7 +15,7 @@ import introsde.soap.ws.Login;
 
 public class LoginClientTest{
 	
-	private static final String WS_URL = "http://localhost:6900/ws/login?wsdl";
+	private static final String WS_URL = "https://sleepy-fortress-27067.herokuapp.com/ws/login?wsdl";
 
 	public static void main(String[] args) throws Exception {
 

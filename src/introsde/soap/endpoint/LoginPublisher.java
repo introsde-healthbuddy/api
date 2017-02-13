@@ -26,7 +26,7 @@ public class LoginPublisher{
         }
 
         String endpointUrl = PROTOCOL+HOSTNAME+":"+PORT+BASE_URL;
-        System.out.println("Starting People Service...");
+        System.out.println("Starting Inlog Service...");
         System.out.println("--> Published at = "+endpointUrl);
         Endpoint.publish(endpointUrl, new LoginImpl());
         }
