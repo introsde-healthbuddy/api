@@ -182,15 +182,11 @@ public class Person implements Serializable {
         return list;
     }
     
-    public static boolean verifyUser(String username, String password) {
+    public static List<Person> verifyUser(String username, String password) {
     	EntityManager em = LifeCoachDao.instance.createEntityManager();
-    	Person p = em.createQuery("SELECT p FROM Person p WHERE p.username = :username AND p.password = :password", Person.class).getSingleResult();
+    	List<Person> p = em.createQuery("SELECT p FROM Person p WHERE p.username = :username AND p.password = :password", Person.class).getResultList();
     	LifeCoachDao.instance.closeConnections(em);
-    	if(p != null) {
-    		return true;
-    	}else {
-    		return false;
-    	}
+    	return p;
     }
     
     public static List<Person> getWithRange(String type, int min, int max){

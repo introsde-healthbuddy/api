@@ -19,7 +19,7 @@ public class LoginImpl implements Login{
 
     @Override
     public String getLoginInfo() {
-
+    	
 	MessageContext mctx = wsctx.getMessageContext();
 
 	//get detail from request headers
@@ -41,11 +41,14 @@ public class LoginImpl implements Login{
         }
 
         //Should validate username and password with database
+        List<Person> test;
         
-        if (Person.verifyUser(username, password)){
+        test = Person.verifyUser(username, password);
+        
+        if (test!=null){
         	return "logged in!";
-        }else{
-        	return "Unknown User!";
+        }else {
+        	return "unkown user!";
         }
         
 //        if (username.equals("ganjasmoker01") && password.equals("password")){
